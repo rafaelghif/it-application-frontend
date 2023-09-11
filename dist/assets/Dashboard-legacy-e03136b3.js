@@ -1,0 +1,1 @@
+System.register(["./index-legacy-7e6fb237.js","./AdminLayout-legacy-1518526a.js"],(function(e,t){"use strict";var s,r;return{setters:[e=>{s=e.j},e=>{r=e.A}],execute:function(){e("default",(()=>s.jsx(r,{title:"Dashboard",children:s.jsx("span",{children:"Dashboard"})})))}}}));

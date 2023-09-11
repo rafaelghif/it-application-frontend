@@ -1,0 +1,1 @@
+import{c as a,a as o,d as c}from"./useToast-7daec343.js";const e="/user",p=async()=>{try{return(await a("".concat(e,"/"))).data}catch(r){throw r}},i=async r=>{try{return(await o("".concat(e,"/"),r)).message}catch(s){throw s}},h=async r=>{try{return(await c("".concat(e,"/"),r)).message}catch(s){throw s}};export{i as c,p as g,h as u};
