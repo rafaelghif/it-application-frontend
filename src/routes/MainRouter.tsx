@@ -26,7 +26,7 @@ const MainRouter: React.FC = () => {
                     <Route exact path="/login" component={Login} />
                     <Suspense fallback={<IonSpinner name="crescent" />}>
                         <Route exact path="/dashboard" component={() => <PrivateRoute isAuth={isAuth} component={Dashboard} />} />
-                        <Route exact path="/user" component={() => <PrivateRoute isAuth={isAuth} component={User} isStrictRole={true} roles={["Super Use"]} />} />
+                        <Route exact path="/user" component={() => <PrivateRoute isAuth={isAuth} component={User} isStrictRole={true} roles={["Super User"]} />} />
                         <Route exact path="/category" component={() => <PrivateRoute isAuth={isAuth} component={Category} />} />
                         <Route exact path="/department" component={() => <PrivateRoute isAuth={isAuth} component={Department} />} />
                         <Route exact path="/phone" component={() => <PrivateRoute isAuth={isAuth} component={Phone} />} />

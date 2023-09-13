@@ -11,6 +11,7 @@ interface PrivateRouteProps {
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, isAuth, isStrictRole = false, roles }) => {
     const { user } = useUserStore();
+    console.log(user.role);
     const isAllow = isStrictRole ? roles?.includes(user.role) || false : true;
     return (
         isAuth === false
