@@ -1,9 +1,10 @@
-import { IonCol, IonGrid, IonRefresher, IonRefresherContent, IonRow, IonSearchbar, IonSpinner, RefresherEventDetail } from "@ionic/react";
+import { IonButton, IonCol, IonGrid, IonRefresher, IonRefresherContent, IonRow, IonSearchbar, IonSpinner, RefresherEventDetail } from "@ionic/react";
 import { Suspense, lazy, useState } from "react";
 import Card from "../../../../components/Card";
 import { PersonalComputerInterface } from "../../../../types/personal-computer-type";
 import { useQueryPersonalComputer } from "../../hooks/useQueryPersonalComputer";
 import ModalUpdatePersonalComputer from "../modal/ModalUpdatePersonalComputer";
+import { ExportExcel } from "../../../../helpers/export-personal-computer";
 
 const TablePersonalComputer = lazy(() => import("../TablePersonalComputer"));
 
@@ -37,9 +38,12 @@ const ContainerPersonalComputer: React.FC = () => {
                             {isLoading ? (
                                 <IonSpinner name="crescent" />
                             ) : (
-                                <Suspense fallback={<IonSpinner name="crescent" />}>
-                                    <TablePersonalComputer data={data} handleClickBtnEdit={(data) => handleClickBtnEdit(data)} />
-                                </Suspense>
+                                <>
+                                    <IonButton className="float-right mb-3" onClick={() => ExportExcel(data ? data : [], "IT Assets")}>Export to Excel</IonButton>
+                                    <Suspense fallback={<IonSpinner name="crescent" />}>
+                                        <TablePersonalComputer data={data} handleClickBtnEdit={(data) => handleClickBtnEdit(data)} />
+                                    </Suspense>
+                                </>
                             )}
                         </Card>
                     </IonCol>

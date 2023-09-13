@@ -1,1 +1,0 @@
-import{j as a,a0 as e,a1 as d,a2 as t,a3 as x}from"./index-371e0479.js";const i=({children:r,title:s,color:n,headerColor:o})=>a.jsxs(e,{color:n,children:[a.jsx(d,{color:o,children:a.jsx(t,{children:s})}),a.jsx(x,{children:r})]});export{i as C};
