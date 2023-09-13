@@ -1,1 +1,0 @@
-System.register(["./index-legacy-4a49ef7b.js"],(function(e,t){"use strict";var i,n,c,r,s;return{setters:[e=>{i=e.j,n=e.a,c=e.b,r=e.c,s=e.d}],execute:function(){e("F",(({handleClick:e})=>i.jsx(n,{slot:"fixed",vertical:"bottom",horizontal:"end",children:i.jsx(c,{onClick:()=>e(),children:i.jsx(r,{icon:s})})})))}}}));
