@@ -37,7 +37,7 @@ export interface PersonalComputerInterface {
 export interface PersonalComputerWithDepartmentLocationInterface extends PersonalComputerInterface {
     Department: Pick<DepartmentInterface, "id" | "name">;
     Location: Pick<LocationInterface, "id" | "name">;
-    OperatingSystem: Pick<OperatingSystemInterface, "id" | "version">;
+    OperatingSystem: Pick<OperatingSystemInterface, "id" | "name" | "version">;
 }
 
 export type CreatePersonalComputerType = Pick<

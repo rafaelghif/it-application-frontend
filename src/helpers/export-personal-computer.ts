@@ -25,7 +25,7 @@ export const ExportExcel = (apiData: unknown[], fileName: string) => {
 			"Processor": res.processor,
 			"Architecture": res.architecture,
 			"Total Memory": res.totalMemory,
-			"OS Version": res.OperatingSystem?.version,
+			"OS Version": `${res.OperatingSystem?.name || ""} ${res.OperatingSystem?.version || ""}`,
 			"Asset No": res.assetNo,
 			"Invoice No": res.invoiceNo,
 			"Expire Date": res.expireDate,
