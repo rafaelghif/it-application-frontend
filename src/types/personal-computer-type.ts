@@ -1,5 +1,6 @@
 import { DepartmentInterface } from "./department-type";
 import { LocationInterface } from "./location-type";
+import { OperatingSystemInterface } from "./operating-system-type";
 
 export type computerStatusType = "Operational" | "Not Operating" | "Repair" | "Dispose";
 
@@ -36,6 +37,7 @@ export interface PersonalComputerInterface {
 export interface PersonalComputerWithDepartmentLocationInterface extends PersonalComputerInterface {
     Department: Pick<DepartmentInterface, "id" | "name">;
     Location: Pick<LocationInterface, "id" | "name">;
+    OperatingSystem: Pick<OperatingSystemInterface, "id" | "version">;
 }
 
 export type CreatePersonalComputerType = Pick<
