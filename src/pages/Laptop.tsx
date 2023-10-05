@@ -11,7 +11,7 @@ const PersonalComputer: React.FC = () => {
     return (
         <AdminLayout title="Personal Computer">
             <Suspense fallback={<IonSpinner name="crescent" />}>
-                <ContainerPersonalComputer category="Personal Computer" />
+                <ContainerPersonalComputer category="Laptop" />
                 <ModalCreatePersonalComputer isOpen={isOpenModalCreate} onDidDismiss={() => setIsOpenModalCreate(false)} />
             </Suspense>
             <FabButton handleClick={() => setIsOpenModalCreate(true)} />

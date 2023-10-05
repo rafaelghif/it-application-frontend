@@ -10,26 +10,19 @@ import {
   RefresherEventDetail,
 } from "@ionic/react";
 import { Suspense, lazy, useState } from "react";
-import Card from "../../../../components/Card";
-import { PersonalComputerInterface } from "../../../../types/personal-computer-type";
-import { useQueryPersonalComputer } from "../../hooks/useQueryPersonalComputer";
-import ModalUpdatePersonalComputer from "../modal/ModalUpdatePersonalComputer";
-import { ExportExcel } from "../../../../helpers/export-personal-computer";
+import { PersonalComputerInterface } from "../../../types/personal-computer-type";
+import { useQueryUnspecific } from "../hooks/useQueryUnspecific";
+import Card from "../../../components/Card";
+import { ExportExcel } from "../../../helpers/export-personal-computer";
+import ModalUpdateUnspecificCategory from "./ModalUpdateUnspecificCategory";
 
-const TablePersonalComputer = lazy(() => import("../TablePersonalComputer"));
+const TableUnspecificPersonalComputer = lazy(
+  () => import("./TableUnspecificPersonalComputer")
+);
 
-interface ContainerPersonalComputerProps {
-  category: string;
-}
-
-const ContainerPersonalComputer: React.FC<ContainerPersonalComputerProps> = ({
-  category,
-}) => {
+const ContainerUnspecificPersonalComputer: React.FC = () => {
   const [search, setSearch] = useState<string>("");
-  const { data, isLoading, refetch } = useQueryPersonalComputer(
-    category,
-    search
-  );
+  const { data, isLoading, refetch } = useQueryUnspecific(search);
   const [selectValue, setSelectValue] = useState<PersonalComputerInterface>();
   const [isOpenModalUpdate, setIsOpenModalUpdate] = useState<boolean>(false);
 
@@ -57,7 +50,7 @@ const ContainerPersonalComputer: React.FC<ContainerPersonalComputerProps> = ({
             />
           </IonCol>
           <IonCol>
-            <Card title={`Data ${category}`}>
+            <Card title="Data Unspecific Computer">
               {isLoading ? (
                 <IonSpinner name="crescent" />
               ) : (
@@ -69,7 +62,7 @@ const ContainerPersonalComputer: React.FC<ContainerPersonalComputerProps> = ({
                     Export to Excel
                   </IonButton>
                   <Suspense fallback={<IonSpinner name="crescent" />}>
-                    <TablePersonalComputer
+                    <TableUnspecificPersonalComputer
                       data={data}
                       handleClickBtnEdit={(data) => handleClickBtnEdit(data)}
                     />
@@ -80,13 +73,13 @@ const ContainerPersonalComputer: React.FC<ContainerPersonalComputerProps> = ({
           </IonCol>
         </IonRow>
       </IonGrid>
-      <ModalUpdatePersonalComputer
-        isOpen={isOpenModalUpdate}
+      <ModalUpdateUnspecificCategory
         data={selectValue}
+        isOpen={isOpenModalUpdate}
         onDidDismiss={() => setIsOpenModalUpdate(false)}
       />
     </>
   );
 };
 
-export default ContainerPersonalComputer;
+export default ContainerUnspecificPersonalComputer;

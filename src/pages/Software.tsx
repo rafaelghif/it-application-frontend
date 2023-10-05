@@ -9,7 +9,7 @@ const ModalCreateSoftware = lazy(() => import("../features/software-features/com
 const Software: React.FC = () => {
     const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean>(false);
     return (
-        <AdminLayout title="Department">
+        <AdminLayout title="Software">
             <Suspense fallback={<IonSpinner name="crescent" />}>
                 <ContainerSoftware />
                 <ModalCreateSoftware isOpen={isOpenModalCreate} onDidDismiss={() => setIsOpenModalCreate(false)} />
