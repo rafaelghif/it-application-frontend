@@ -89,6 +89,7 @@ const ModalUpdatePersonalComputer: React.FC<
       expireDate: data?.expireDate,
       status: data?.status,
       remark: data?.remark,
+      additionalSoftware: data?.additionalSoftware,
       category: data?.category,
       inActive: data?.inActive,
       DepartmentId: data?.DepartmentId,
@@ -226,6 +227,16 @@ const ModalUpdatePersonalComputer: React.FC<
             labelPlacement="floating"
             value={formData?.remark}
             onIonInput={(e) => handleInput("remark", e.detail.value!)}
+          />
+        </IonItem>
+        <IonItem>
+          <IonTextarea
+            label="Additional Software"
+            labelPlacement="floating"
+            value={formData?.additionalSoftware}
+            onIonInput={(e) =>
+              handleInput("additionalSoftware", e.detail.value!)
+            }
           />
         </IonItem>
         <Suspense fallback={<IonSpinner name="crescent" />}>

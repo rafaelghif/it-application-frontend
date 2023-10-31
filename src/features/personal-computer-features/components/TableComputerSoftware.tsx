@@ -1,24 +1,17 @@
 import { TableColumn } from "react-data-table-component";
 import Table from "../../../components/Table";
 import { useMemo } from "react";
-import { IonButton, IonText } from "@ionic/react";
-import {
-  formatDateTime,
-  isExpired,
-  isWithinToleranceDays,
-} from "../../../libs/date-fns";
-import { SoftwareInterface } from "../../../types/software-type";
+import { SoftwareWithComputerSoftwareInterface } from "../../../types/software-type";
+import { isExpired, isWithinToleranceDays } from "../../../libs/date-fns";
 
-interface TableSoftwareProps {
-  data?: SoftwareInterface[];
-  handleClickBtnEdit: (data: SoftwareInterface) => void;
+interface TableComputerSoftwareProps {
+  data?: SoftwareWithComputerSoftwareInterface[];
 }
 
-const TableSoftware: React.FC<TableSoftwareProps> = ({
+const TableComputerSoftware: React.FC<TableComputerSoftwareProps> = ({
   data = [],
-  handleClickBtnEdit,
 }) => {
-  const columns: TableColumn<SoftwareInterface>[] = useMemo(
+  const columns: TableColumn<SoftwareWithComputerSoftwareInterface>[] = useMemo(
     () => [
       {
         name: "Name",
@@ -31,7 +24,6 @@ const TableSoftware: React.FC<TableSoftwareProps> = ({
         name: "Version",
         selector: (row) => row.version,
         sortable: true,
-        grow: 2,
         wrap: true,
       },
       {
@@ -44,8 +36,8 @@ const TableSoftware: React.FC<TableSoftwareProps> = ({
         name: "Product Key",
         selector: (row) => row.productKey,
         sortable: true,
-        wrap: true,
         grow: 2,
+        wrap: true,
       },
       {
         name: "Start Date",
@@ -78,57 +70,11 @@ const TableSoftware: React.FC<TableSoftwareProps> = ({
       {
         name: "Remark",
         selector: (row) => row.remark,
-        width: "320px",
-        sortable: true,
-        grow: 2,
-        wrap: true,
-      },
-      {
-        name: "isAssigned",
-        cell: (row) => (
-          <IonText color={row.isAssigned ? "danger" : "success"}>
-            {row.isAssigned ? "Assigned" : "Available"}
-          </IonText>
-        ),
-        sortable: true,
-      },
-      {
-        name: "Status",
-        cell: (row) => (
-          <IonText color={row.inActive ? "danger" : "success"}>
-            {row.inActive ? "InActive" : "Active"}
-          </IonText>
-        ),
-        sortable: true,
-      },
-      {
-        name: "Update By",
-        selector: (row) => row.updatedBy,
-        sortable: true,
-      },
-      {
-        name: "Update At",
-        selector: (row) => formatDateTime(row.updatedAt),
         sortable: true,
         wrap: true,
-      },
-      {
-        name: "Edit",
-        cell: (row) => (
-          <IonButton
-            fill="clear"
-            color="warning"
-            onClick={() => {
-              handleClickBtnEdit(row);
-            }}
-          >
-            Edit
-          </IonButton>
-        ),
-        center: true,
       },
     ],
-    [handleClickBtnEdit]
+    []
   );
   return (
     <Table
@@ -142,4 +88,4 @@ const TableSoftware: React.FC<TableSoftwareProps> = ({
   );
 };
 
-export default TableSoftware;
+export default TableComputerSoftware;

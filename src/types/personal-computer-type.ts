@@ -34,6 +34,7 @@ export interface PersonalComputerInterface {
   expireDate: string;
   status: computerStatusType;
   remark: string;
+  additionalSoftware: string;
   category: categoryType;
   inActive: boolean;
   createdBy: string;
